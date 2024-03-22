@@ -26,13 +26,11 @@ export default function Page({ params }: PageProps) {
     }, [])
 
     return (
-        <div className='pl-4 pt-4 flex flex-col gap-4'>
+        <div className='pl-4 pt-4 flex flex-col gap-4 mb-4'>
             <span className='text-2xl font-semibold'>{typeName}</span>
-            <div className='grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-4 p-4 w-full '>
+            <div className='grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-4 '>
                 {products?.products.map((product) => (
-                    <div key={product.id} className='flex flex-col items-center justify-center'>
-                        <ProductCard product={product} />
-                    </div>
+                    <ProductCard key={product.id} product={product} />
                 ))}
             </div>
         </div>
