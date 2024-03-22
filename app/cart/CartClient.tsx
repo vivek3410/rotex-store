@@ -12,8 +12,8 @@ export default function CartClient() {
 
     if (cartProducts?.length === 0 || !cartProducts) {
         return (
-            <div className="flex flex-col items-center">
-                <div className='text-3xl'>Your Cart is Empty</div>
+            <div className="flex flex-col items-center p-4">
+                <div className='text-xl md:text-3xl'>Your Cart is Empty</div>
                 <div>
                     <Link href={"/"} className='text-slate-500 flex items-center gap-1 mt-2'>
                         <MdArrowBack />
