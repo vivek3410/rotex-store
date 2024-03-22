@@ -68,15 +68,15 @@ export default function CartClient() {
                         <ItemsContent key={product.id} item={product} />
                     ))}
                 </div>
-                <div className='border-t-[1.5px] border-slate-200 py-4 flex justify-between gap-4'>
-                    <div>
-                        <Button label={"Clear cart"} onClick={handleClearCart} small outline custom='max-w-[90px]' />
-                    </div>
+                <div>
+                    <Button label={"Clear cart"} onClick={handleClearCart} small outline custom='max-w-[90px]' />
+                </div>
+                <div className='border-t-[1.5px] border-slate-200 py-4 flex justify-between gap-4 mt-4'>
                     <div className='text-sm flex flex-col gap-1 items-start'>
                         <div className='flex flex-col gap-1'>
                             <div className='flex justify-between w-full text-base font-semibold'>
-                                <span>SubTotal</span>
-                                <span>{PriceFormat(subtotal)}</span>
+                                <span className='text-md'>SubTotal</span>
+                                <span className='text-md'>{PriceFormat(subtotal)}</span>
                             </div>
                             <p className='text-slate-500'>Taxes and shipping calculated at checkout</p>
                             <Button label='Checkout' onClick={() => { }} custom='w-full' />
