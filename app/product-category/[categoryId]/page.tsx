@@ -1,6 +1,5 @@
 
-import ProductCard from "@/app/product/components/productCard";
-import { NavStrip } from "@/components";
+import { NavStrip, ProductCard } from "@/components";
 import { productsByCategory } from "@/utils/products";
 
 interface PageProps {

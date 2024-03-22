@@ -8,7 +8,7 @@ interface ProductCardProps {
     product: Products
 }
 
-export default function ProductCard({ product }: ProductCardProps) {
+export function ProductCard({ product }: ProductCardProps) {
     const router = useRouter();
     return (
         <div className="flex flex-col justify-center gap-4 w-auto h-[250px] px-2 py-4 cursor-pointer border-2 bolder-slate-500" onClick={() => router.push(`/product/${product.id}`)}>

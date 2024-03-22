@@ -1,8 +1,8 @@
 'use client'
 import { productsByCategory } from '@/utils/products';
 import React, { useEffect } from 'react';
-import ProductCard from '@/app/product/components/productCard';
 import { useCart } from '@/hooks/useCart';
+import { ProductCard } from '@/components';
 
 interface PageProps {
     params: {

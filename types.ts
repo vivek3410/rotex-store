@@ -44,3 +44,20 @@ export type specifications = {
 }
 
 
+export type cartProductType = {
+    id: number;
+    name: string;
+    description: string;
+    price: number;
+    quantity: number;
+    category: string;
+    selectedImg: selectedImageType;
+    type: string;
+
+}
+
+
+export type selectedImageType = {
+    view: string;
+    image: string;
+}

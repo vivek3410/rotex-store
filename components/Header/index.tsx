@@ -9,6 +9,7 @@ import { FaFacebook } from "react-icons/fa";
 import { BsInstagram, BsTwitter, BsYoutube } from "react-icons/bs";
 import { CgCloseO } from "react-icons/cg";
 import { useState } from "react";
+import { ShoppingCartIcon } from "../ShoppingCartIcon";
 
 
 type NotificationStripProps = {
@@ -81,9 +82,9 @@ const Header = () => {
                         <BiSearch size={24} />
                     </div>
                 </div>
-                <div className="flex items-center gap-4 md:gap-2">
-                    <BiShoppingBag size={24} />
-                    <BiUserCircle size={24} />
+                <div className="flex items-center gap-8 md:gap-2">
+                    <ShoppingCartIcon />
+                    <BiUserCircle size={34} />
                 </div>
             </div>
             <div className="flex justify-around md:hidden bg-white mx-4 rounded-full px-4 py-1">
