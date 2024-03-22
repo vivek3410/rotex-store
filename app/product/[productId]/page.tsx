@@ -81,42 +81,42 @@ export default function Page({ params }: PageProps) {
                         </div>
                     </div>
                     <div className='flex flex-col gap-2 border-[1px] border-slate-400 rounded-md p-4'>
-                        <span className='text-slate-600 text-xl font-bold'>{product.name}</span>
-                        <span className="text-teal-600 text-xl font-bold">{product.description}</span>
+                        <span className='text-slate-600 text-md md:text-xl font-bold'>{product.name}</span>
+                        <span className="text-teal-600 text-md md:text-xl font-bold">{product.description}</span>
                         <div className='flex flex-col gap-4'>
-                            <span className='text-slate-900 font-semibold text-xl'>Specifications</span>
+                            <span className='text-slate-900 font-semibold text-md md:text-xl'>Specifications</span>
                             <div className='flex flex-col gap-1'>
                                 <div className='flex items-center gap-1'>
                                     <span className='text-slate-900 font-semibold text-md'>Model:</span>
                                     <div className='text-md'>{product.specifications.model}</div>
                                 </div>
-                                <div className='grid grid-cols-2 gap-8 w-full'>
+                                <div className='grid grid-cols-1 md:grid-cols-2 gap-2 md:gap-8 w-full'>
                                     <div className='flex flex-col gap-2'>
                                         <div className="flex items-center justify-between ">
                                             <div className='text-[.7em] md:text-[.8em] font-semibold'>Application</div>
-                                            <div className='text-[.7em] md:text-[.8em] bg-slate-100 min-w-auto max-w-auto rounded-md px-[.5em] py-[.2em]'>{product.specifications.Application}</div>
+                                            <div className='text-[.7em] md:text-[.8em] bg-slate-100 min-w-[150px] max-w-[150px] rounded-md px-[.5em] py-[.2em]'>{product.specifications.Application}</div>
                                         </div>
                                         <div className="flex items-center justify-between gap-4">
                                             <div className='text-[.7em] md:text-[.8em] font-semibold'>Temperature Range</div>
-                                            <div className='text-[.7em] md:text-[.8em bg-slate-100 rounded-md min-w-auto max-w-auto px-[1em] py-[.2em]'>{product.specifications.TemperatureRange}</div>
+                                            <div className='text-[.7em] md:text-[.8em bg-slate-100 rounded-md min-w-[150px] max-w-[150px] px-[1em] py-[.2em]'>{product.specifications.TemperatureRange}</div>
                                         </div>
                                         <div className="flex items-center justify-between">
                                             <div className='text-[.7em] md:text-[.8em] font-semibold'>Max Pressure(bar)</div>
-                                            <div className='text-[.7em] md:text-[.8em bg-slate-100 rounded-md min-w-auto max-w-auto px-[1em] py-[.2em]'>{product.specifications.MaxPressure}</div>
+                                            <div className='text-[.7em] md:text-[.8em bg-slate-100 rounded-md min-w-[150px] max-w-[150px] px-[1em] py-[.2em]'>{product.specifications.MaxPressure}</div>
                                         </div>
                                     </div>
                                     <div className='flex flex-col gap-2'>
                                         <div className="flex items-center justify-between gap-4">
                                             <div className='text-[.7em] md:text-[.8em] font-semibold'>Function Type</div>
-                                            <div className='text-[.7em] md:text-[.8em bg-slate-100 rounded-md min-w-auto max-w-auto px-[1em] py-[.2em]'>{product.specifications.FunctionType}</div>
+                                            <div className='text-[.7em] md:text-[.8em bg-slate-100 rounded-md min-w-[150px] max-w-[150px] px-[1em] py-[.2em]'>{product.specifications.FunctionType}</div>
                                         </div>
                                         <div className="flex items-center justify-between">
                                             <div className='text-[.7em] md:text-[.8em] font-semibold'>Min Pressure(bar)</div>
-                                            <div className='text-[.7em] md:text-[.8em bg-slate-100 rounded-md min-w-auto max-w-auto px-[1em] py-[.2em]'>{product.specifications.MinPressure}</div>
+                                            <div className='text-[.7em] md:text-[.8em bg-slate-100 rounded-md min-w-[150px] max-w-[150px] px-[1em] py-[.2em]'>{product.specifications.MinPressure}</div>
                                         </div>
                                         <div className="flex items-center justify-between">
                                             <div className='text-[.7em] md:text-[.8em] font-semibold'>Media</div>
-                                            <div className='text-[.7em] md:text-[.8em bg-slate-100 rounded-md min-w-auto max-w-auto px-[1em] py-[.2em]'>{product.specifications.Media}</div>
+                                            <div className='text-[.7em] md:text-[.8em bg-slate-100 rounded-md min-w-[150px] max-w-[150px] px-[1em] py-[.2em]'>{product.specifications.Media}</div>
                                         </div>
                                     </div>
                                 </div>
