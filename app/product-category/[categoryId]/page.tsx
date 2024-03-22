@@ -19,9 +19,9 @@ export default function Page({ params }: PageProps) {
     return (
         <>
             {/* <NavStrip catName={category.category} /> */}
-            <div className="flex flex-col gap-2 p-2">
-                <div className="font-semibold text-2xl">{category.category}</div>
-                <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 md:gap-6 m-4">
+            <div className="flex flex-col gap-2 p-4">
+                <div className="font-semibold text-xl md:text-2xl">{category.category}</div>
+                <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-2 items-center  md:gap-6 ">
                     {category.subCategory.map((subcategory) => subcategory.type.map((type) => type.products.map((product, index) => (
                         <ProductCard key={index} product={product} />
                     ))))}

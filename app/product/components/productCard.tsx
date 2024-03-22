@@ -11,7 +11,7 @@ interface ProductCardProps {
 export default function ProductCard({ product }: ProductCardProps) {
     const router = useRouter();
     return (
-        <div className="flex flex-col justify-center gap-4 w-[300px] h-[250px] px-2 py-4 cursor-pointer" onClick={() => router.push(`/product/${product.id}`)}>
+        <div className="flex flex-col justify-center gap-4 w-auto h-[250px] px-2 py-4 cursor-pointer border-2 bolder-slate-500" onClick={() => router.push(`/product/${product.id}`)}>
             <Image src={product.images.length >= 1 ? product.images[0].image : '/images/400x400.png'} alt={product.name} width={150} height={150} className='object-contain mx-auto' />
             <div className='flex items-center justify-between'>
                 <div className='flex flex-col px-2'>

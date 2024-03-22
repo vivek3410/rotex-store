@@ -16,26 +16,26 @@ export const NavStrip = ({ catName, subCatName, typeName, productName, catId, su
     const router = useRouter()
 
     return (
-        <div className="flex items-center p-[1em] border-b-2 border-slate-300">
-            <div className="text-teal-600 underline hover:text-slate-900 cursor-pointer" onClick={() => router.push('/')} >Home</div>
+        <div className="flex items-center p-[.5em] sm:p-[1em] border-b-2 border-slate-300">
+            <div className="text-teal-600 underline hover:text-slate-900 cursor-pointer text-[.8em] sm:text-[1em]" onClick={() => router.push('/')} >Home</div>
             <BiChevronRight size={24} />
-            <div className=" text-teal-600 underline hover:text-slate-900 cursor-pointer" onClick={() => router.push(`/product-category/${catId}`)}>{catName}</div>
+            <div className=" text-teal-600 underline hover:text-slate-900 cursor-pointer text-[.8em] sm:text-[1em]" onClick={() => router.push(`/product-category/${catId}`)}>{catName}</div>
             {subCatName && catId && subcatId && (
                 <>
                     <BiChevronRight size={24} />
-                    <div className=" text-teal-600 underline hover:text-slate-900 cursor-pointer" onClick={() => router.push(`/product-category/${catId}/subCategory/${subcatId}/product-list/${typeName}`)}>{subCatName}</div>
+                    <div className=" text-teal-600 underline hover:text-slate-900 cursor-pointer text-[.8em] sm:text-[1em]" onClick={() => router.push(`/product-category/${catId}/subCategory/${subcatId}/product-list/${typeName}`)}>{subCatName}</div>
                 </>
             )}
             {typeName && (
                 <>
                     <BiChevronRight size={24} />
-                    <div className=" text-teal-600 underline cursor-pointer hover:text-slate-900">{typeName}</div>
+                    <div className=" text-teal-600 underline cursor-pointer hover:text-slate-900 text-[.8em] sm:text-[1em]">{typeName}</div>
                 </>
             )}
             {productName && (
                 <>
                     <BiChevronRight size={24} />
-                    <div className=" text-slate-800 hover:text-slate-900">{productName}</div>
+                    <div className=" text-slate-800 hover:text-slate-900 text-[.8em] sm:text-[1em]">{productName}</div>
                 </>
             )}
         </div>
