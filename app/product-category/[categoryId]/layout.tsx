@@ -36,10 +36,10 @@ export default function Layout({ children, params }: LayoutProps) {
         <>
             <NavStrip catName={catName} />
             <div className='grid grid-cols-10'>
-                <div className="col-span-3">
+                <div className="col-span-3 hidden xl:block">
                     <Sidebar />
                 </div>
-                <div className="col-span-7">
+                <div className="col-span-10 xl:col-span-7">
                     {children}
                 </div>
             </div>
