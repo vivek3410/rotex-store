@@ -1,8 +1,11 @@
 import type { Metadata } from "next";
-import { Inter } from "next/font/google";
+import { Poppins } from "next/font/google";
 import "./globals.css";
+import { Toaster } from "react-hot-toast";
+import { Layout, NavStrip } from "@/components";
+import { CartProvider } from "@/hooks/useCart";
 
-const inter = Inter({ subsets: ["latin"] });
+const poppins = Poppins({ subsets: ["latin"], weight: ['400', '700'] });
 
 export const metadata: Metadata = {
   title: "Create Next App",
@@ -16,7 +19,23 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <body className={inter.className}>{children}</body>
-    </html>
+      <body className={`${poppins.className} text-slate-700`}>
+        <main>
+          <CartProvider>
+            <Toaster toastOptions={{
+              style: {
+                backgroundColor: 'rgb(51 65 85)',
+                color: '#fff',
+              }
+            }} />
+            <Layout>
+              <div className="flex-grow">
+                {children}
+              </div>
+            </Layout>
+          </CartProvider>
+        </main>
+      </body>
+    </html >
   );
 }
