@@ -3,8 +3,13 @@ import CartClient from './CartClient';
 
 export default function Page() {
     return (
-        <div className='p-8'>
-            <CartClient />
-        </div>
+        <>
+            <div className='hidden md:block p-8'>
+                <CartClient />
+            </div>
+            <div className='block md:hidden'>
+                <CartClient />
+            </div>
+        </>
     );
 }
