@@ -70,28 +70,26 @@ const Header = () => {
         setShowNotification(!showNotification);
     }
     return (
-        <div className="sticky top-0 w-full bg-slate-300 shadow-sm z-30 h-[250px] md:h-[190px]">
+        <div className=" w-full bg-slate-300 shadow-sm z-30 h-[250px] md:h-[190px]">
             <NotificationStrip closeButton={closeButton} custom={`${showNotification ? 'block' : 'hidden'}`} />
             <Accounts />
-            <Container>
-                <div className={`${showNotification ? ' py-4 md:py-[30px]' : 'py-4 md:py-[50px]'} flex items-center justify-around md:justify-between md:gap-0`}>
-                    <Link href={"/"}><Image src={"/images/rotex-logo.png"} alt="Rotex Logo" width={140} height={150} className="min-w-24 md:w-48" /></Link>
-                    <div className="hidden md:block w-full mx-12">
-                        <div className="flex justify-around bg-white rounded-full px-4 py-2">
-                            <input type="text" className="outline-none w-full" placeholder="Search Products" />
-                            <BiSearch size={24} />
-                        </div>
-                    </div>
-                    <div className="flex items-center gap-4 md:gap-2">
-                        <BiShoppingBag size={24} />
-                        <BiUserCircle size={24} />
+            <div className={`${showNotification ? ' py-4 md:py-[30px]' : 'py-4 md:py-[50px]'} flex items-center px-4  justify-between md:justify-between md:gap-0`}>
+                <Link href={"/"}><Image src={"/images/rotex-logo.png"} alt="Rotex Logo" width={140} height={150} className="min-w-24 md:w-48" /></Link>
+                <div className="hidden md:block w-full md:mx-12">
+                    <div className="flex justify-around bg-white rounded-full px-4 py-2">
+                        <input type="text" className="outline-none w-full" placeholder="Search Products" />
+                        <BiSearch size={24} />
                     </div>
                 </div>
-                <div className="flex justify-around md:hidden bg-white mx-12 rounded-full px-4 py-1">
-                    <input type="text" className="outline-none w-full" placeholder="Search Products" />
-                    <BiSearch size={24} />
+                <div className="flex items-center gap-4 md:gap-2">
+                    <BiShoppingBag size={24} />
+                    <BiUserCircle size={24} />
                 </div>
-            </Container>
+            </div>
+            <div className="flex justify-around md:hidden bg-white mx-4 rounded-full px-4 py-1">
+                <input type="text" className="outline-none w-full" placeholder="Search Products" />
+                <BiSearch size={24} />
+            </div>
         </div>
     );
 }
