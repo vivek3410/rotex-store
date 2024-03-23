@@ -20,9 +20,9 @@ export default function Page() {
 
             <div className='flex flex-col mx-auto items-center bg-white min-h-[300px] max-w-[600px] px-8 md:px-16 py-8 rounded-3xl z-30 shadow-xl'>
                 <div className='w-full flex flex-col gap-8'>
-                    <FloatingInput label='Email' />
+                    <FloatingInput label='Email' name="email" custom="rounded-xl"/>
                     <div className='flex flex-col text-start gap-1 '>
-                        <FloatingInput label='Password' />
+                        <FloatingInput label='Password' name="password" custom="rounded-xl" />
                         <div className='hover:underline hover:text-teal-600 cursor-pointer'>Forgot your password?</div>
                     </div>
                     <div className='flex flex-col gap-4'>

@@ -11,6 +11,7 @@ import { CgCloseO } from "react-icons/cg";
 import { useState } from "react";
 import { ShoppingCartIcon } from "../ShoppingCartIcon";
 import { useRouter } from "next/navigation";
+import { Menu } from "@headlessui/react";
 
 
 type NotificationStripProps = {
@@ -29,7 +30,24 @@ const NotificationStrip = ({ closeButton, custom }: NotificationStripProps) => {
     )
 }
 
+const MyAccount = [
+    {
+        name: "My Account",
+        href: "/account",
+    },
+    {
+        name: "My Cart",
+        href: "/cart",
+    },
+    {
+        name: "Checkout",
+        href: "/checkout",
+    }
+]
+
 const Accounts = () => {
+    const [isHovered, setIsHovered] = useState(false);
+    const router = useRouter()
     return (
         <div className="bg-slate-200 px-2 md:px-4 xl:px-20 flex flex-col md:flex-row gap-1 md:gap-4 md:justify-between py-2">
             <div className="flex items-center justify-between md:justify-normal gap-4">
@@ -42,7 +60,7 @@ const Accounts = () => {
             </div>
             <div className="flex flex-col md:flex-row  md:items-center text-sm gap-1 md:gap-2">
                 <div className="flex items-center justify-between gap-2">
-                    <div>
+                    <div className="hover:underline cursor-pointer" onClick={() => router.push('/account/orders')}>
                         My Orders
                     </div>
                     <Vertical />
@@ -50,10 +68,30 @@ const Accounts = () => {
                 </div>
                 <Vertical />
                 <div className="flex items-center justify-between gap-2">
-                    <div className="flex items-center">
-                        My Account
-                        <BiChevronDown size={24} />
-                    </div>
+                    <Menu>
+                        <div className="">
+                            <Menu.Button
+                                className={`${isHovered ? 'hovered' : ''} flex items-center hover:underline`}
+                                onMouseEnter={() => setIsHovered(true)}
+                                onMouseLeave={() => setIsHovered(false)}
+                            >
+                                My Account
+                                <BiChevronDown size={24} />
+                            </Menu.Button>
+                            <Menu.Items className={"bg-slate-100 border-t-2 border-teal-600 flex flex-col gap-1 min-w-[200px] absolute top-[120px] md:top-[68px] z-20"}>
+                                {MyAccount.map((item, index) => (
+                                    <Menu.Item key={index}>
+                                        {({ active }) => (
+                                            <Link href={item.href} className={`hover:bg-slate-200 px-4 py-2 my-1`}>
+                                                {item.name}
+                                            </Link>
+                                        )}
+                                    </Menu.Item>
+                                ))}
+
+                            </Menu.Items>
+                        </div>
+                    </Menu>
                     <Vertical />
                     <div className="flex items-center gap-4">
                         <div><FaFacebook /></div>

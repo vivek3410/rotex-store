@@ -21,11 +21,12 @@ export default function Page() {
 
             <div className='flex flex-col mx-8 md:mx-auto items-center bg-white min-h-[300px] max-w-[600px] px-8 md:px-16 py-8 rounded-3xl z-30 shadow-xl gap-8'>
                 <div className='w-full flex flex-col gap-8'>
-                    <FloatingInput label='First Name' />
-                    <FloatingInput label='Last Name' />
-                    <FloatingInput label='Last Name' />
-                    <FloatingInput label='Email' />
-                    <FloatingInput label='Password' />
+                    <FloatingInput label='First Name' name='firstname' custom='rounded-xl' />
+                    <FloatingInput label='Last Name' name='lastname' custom='rounded-xl' />
+                    <FloatingInput label='Email' name='email' custom='rounded-xl' />
+                    <FloatingInput label='Password' name='password' custom='rounded-xl' />
+                    <FloatingInput label='Confirm Password' name='confirmpassword' custom='rounded-xl' />
+
                 </div>
                 <div className='w-full flex flex-col gap-2 text-start'>
                     <Button label='Create Account' onClick={handleSignup} custom='bg-slate-600' />
