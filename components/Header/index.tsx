@@ -10,6 +10,7 @@ import { BsInstagram, BsTwitter, BsYoutube } from "react-icons/bs";
 import { CgCloseO } from "react-icons/cg";
 import { useState } from "react";
 import { ShoppingCartIcon } from "../ShoppingCartIcon";
+import { useRouter } from "next/navigation";
 
 
 type NotificationStripProps = {
@@ -66,6 +67,7 @@ const Accounts = () => {
     )
 }
 const Header = () => {
+    const router = useRouter();
     const [showNotification, setShowNotification] = useState(true);
     const closeButton = () => {
         setShowNotification(!showNotification);
@@ -84,11 +86,11 @@ const Header = () => {
                 </div>
                 <div className="flex items-center gap-8 md:gap-2">
                     <ShoppingCartIcon />
-                    <BiUserCircle size={34} />
+                    <BiUserCircle size={34} className="cursor-pointer" onClick={() => router.push('/login')} />
                 </div>
             </div>
             <div className="flex justify-around md:hidden bg-white mx-4 rounded-full px-4 py-1">
-                <input type="text" className="outline-none w-full" placeholder="Search Products" />
+                <input type="text" className="outline-none w-full" placeholder="Search Products " />
                 <BiSearch size={24} />
             </div>
         </div>
