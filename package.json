@@ -12,6 +12,7 @@
   "dependencies": {
     "@headlessui/react": "^1.7.18",
     "@prisma/client": "^5.11.0",
+    "@prisma/extension-accelerate": "^1.0.0",
     "axios": "^1.6.8",
     "express": "^4.19.1",
     "firebase": "^10.9.0",

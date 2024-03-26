@@ -1,5 +1,4 @@
 'use client'
-
 import { cartProductType, Products, selectedImageType } from '@/types';
 import { PriceFormat } from '@/utils/priceFormate';
 import React, { useCallback, useEffect, useState } from 'react';
