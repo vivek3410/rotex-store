@@ -1,5 +1,6 @@
 'use client'
 import { cartProductType } from "@/types";
+import axios from "axios";
 import { createContext, useCallback, useContext, useEffect, useState } from "react";
 import toast from "react-hot-toast";
 
@@ -16,6 +17,7 @@ type CartContextType = {
     handleCartQtyDec: (product: cartProductType) => void
     handleCartQtyInc: (product: cartProductType) => void
     handleClearCart: () => void
+    
 }
 
 export const CartContext = createContext<CartContextType | null>(null);
@@ -107,6 +109,7 @@ export const CartProvider = ({ children }: { children: React.ReactNode }) => {
         handleCartQtyDec,
         handleCartQtyInc,
         handleClearCart,
+        
     }
 
     return (

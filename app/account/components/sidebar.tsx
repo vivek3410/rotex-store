@@ -1,7 +1,10 @@
 'use client'
+import { doSignOut } from '@/firebase/auth';
+import { useCart } from '@/hooks/useCart';
 import Link from 'next/link';
-import { usePathname } from 'next/navigation';
+import { usePathname, useRouter } from 'next/navigation';
 import React from 'react';
+import toast from 'react-hot-toast';
 import { BiHomeAlt, BiHomeCircle, BiUser } from 'react-icons/bi';
 import { CiShoppingBasket } from 'react-icons/ci';
 import { GrDashboard, GrOrderedList } from 'react-icons/gr';
@@ -18,6 +21,7 @@ interface Props {
 
 function AccountSidebar(props: Props) {
     const pathname = usePathname();
+    const router = useRouter()
 
     const routes = [
         {
@@ -42,7 +46,7 @@ function AccountSidebar(props: Props) {
             href: '/account/edit-account',
             icon: <BiUser size={20} />,
             active: pathname === '/account/edit-account'
-        }
+        },
     ]
 
     return (
@@ -53,9 +57,11 @@ function AccountSidebar(props: Props) {
                         {route.label}
                         {route.icon ? route.icon : ''}
                     </Link>
+
                 </div>
             ))}
-        </div>
+            <div className='border-t-[1px] border-slate-300 cursor-pointer' onClick={() => doSignOut().then(() => { router.push('/'); toast.success("loggedout") })}>Customer Logout</div>
+        </div >
     );
 }
 

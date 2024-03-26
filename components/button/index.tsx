@@ -10,8 +10,9 @@ interface ButtonProps {
     custom?: string,
     icon?: IconType,
     onClick: (event: React.MouseEvent<HTMLButtonElement>) => void
+    type?: "submit" | "reset" | "button"
 }
-export const Button = ({ label, disabled, outline, small, custom, icon: Icon, onClick }: ButtonProps) => {
+export const Button = ({ label, disabled, outline, small, custom, icon: Icon, onClick, type }: ButtonProps) => {
     return (
         <button
             disabled={disabled}
@@ -31,7 +32,9 @@ export const Button = ({ label, disabled, outline, small, custom, icon: Icon, on
             ${outline ? 'bg-white text-slate-700' : 'bg-slate-700 text-white'}
             ${small ? 'text-sm py-1 px-2 font-light border-[1px]' : 'text-md font-semibold py-3 px-4 border-2'}
             ${custom ? custom : ''}
-            `}>
+            `}
+            type={type}
+        >
             {Icon && <Icon size={24} />}
             {label}
         </button>

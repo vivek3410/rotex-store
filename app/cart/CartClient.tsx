@@ -6,6 +6,7 @@ import React from 'react';
 import { MdArrowBack } from 'react-icons/md';
 import ItemsContent from './ItemsContent';
 import { PriceFormat } from '@/utils/priceFormate';
+import toast from 'react-hot-toast';
 
 export default function CartClient() {
     const { cartProducts, handleClearCart } = useCart()
@@ -22,6 +23,16 @@ export default function CartClient() {
                 </div>
             </div>
         )
+    }
+
+    const handleCheckout = async (e: any) => {
+        e.preventDefault()
+        try {
+
+        } catch (e) {
+            console.log(e);
+            toast.error("something went wrong")
+        }
     }
 
     const subtotal = cartProducts.reduce((acc, item) => acc + item.price * item.quantity, 0)

@@ -61,3 +61,22 @@ export type selectedImageType = {
     view: string;
     image: string;
 }
+
+export type user = {
+    firstName: string
+    lastName: string
+    email: string
+    password: string
+}
+
+export type Address = {
+    userId: string
+    firstName: string
+    lastName: string
+    city: string
+    state: string
+    country: string
+    streetAddress: string
+    pincode: string
+    companyName?: string
+}

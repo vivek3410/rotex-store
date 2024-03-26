@@ -1,8 +1,12 @@
+'use client'
 import { CategoryList, Container } from "@/components";
+import prismadb from "@/lib/prismadb";
+import { useEffect } from "react";
 import { FiCheckCircle } from "react-icons/fi";
 
 
 const Page = () => {
+    
     return (
         <>
             <HomeBanner />

@@ -4,6 +4,7 @@ import "./globals.css";
 import { Toaster } from "react-hot-toast";
 import { Layout, NavStrip } from "@/components";
 import { CartProvider } from "@/hooks/useCart";
+import { AuthProvider } from "@/hooks/useAuth";
 
 const poppins = Poppins({ subsets: ["latin"], weight: ['400', '700'] });
 
@@ -21,19 +22,21 @@ export default function RootLayout({
     <html lang="en">
       <body className={`${poppins.className} text-slate-700`}>
         <main>
-          <CartProvider>
-            <Toaster toastOptions={{
-              style: {
-                backgroundColor: 'rgb(51 65 85)',
-                color: '#fff',
-              }
-            }} />
-            <Layout>
-              <div className="flex-grow">
-                {children}
-              </div>
-            </Layout>
-          </CartProvider>
+          <AuthProvider>
+            <CartProvider>
+              <Toaster toastOptions={{
+                style: {
+                  backgroundColor: 'rgb(51 65 85)',
+                  color: '#fff',
+                }
+              }} />
+              <Layout>
+                <div className="flex-grow">
+                  {children}
+                </div>
+              </Layout>
+            </CartProvider>
+          </AuthProvider>
         </main>
       </body>
     </html >

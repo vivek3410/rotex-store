@@ -1,4 +1,7 @@
 'use client'
+import { useAuth } from '@/hooks/useAuth';
+import withAuth from '@/hooks/withAuth';
+import prismadb from '@/lib/prismadb';
 import React from 'react';
 
 interface Props {
@@ -9,6 +12,8 @@ function Page(props: Props) {
     const handleLogout = () => {
         console.log('Logout');
     }
+    const { userId } = useAuth();
+   
     return (
         <div className='flex flex-col py-4 gap-8 mx-4 md:mx-0'>
             <div className='flex items-center justify-center text-4xl'>My Account</div>
@@ -25,5 +30,5 @@ function Page(props: Props) {
     );
 }
 
-export default Page;
+export default withAuth(Page);
 
