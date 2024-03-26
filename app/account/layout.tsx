@@ -2,7 +2,6 @@
 import React, { useEffect } from 'react';
 import Navbar from './components/navbar';
 import AccountSidebar from './components/sidebar';
-import axios from 'axios';
 import { useAuth } from '@/hooks/useAuth';
 import { useRouter } from 'next/navigation';
 

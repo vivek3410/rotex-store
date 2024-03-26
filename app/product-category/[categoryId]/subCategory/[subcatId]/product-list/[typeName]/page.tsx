@@ -22,8 +22,7 @@ export default function Page({ params }: PageProps) {
     useEffect(() => {
         setSubCatId(subcatId)
         setTypeName(typeName)
-        // location.reload();
-    }, [])
+    }, [subcatId, typeName])
 
     return (
         <div className='pl-4 pt-4 flex flex-col gap-4 mb-4'>

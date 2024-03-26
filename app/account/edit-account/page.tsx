@@ -2,11 +2,8 @@
 import { FloatingInput } from '@/components';
 import React from 'react';
 
-interface Props {
 
-}
-
-function Page(props: Props) {
+function Page() {
     return (
         <div className='flex flex-col py-4 gap-4 md:gap-12'>
             <div className='flex items-center justify-center text-4xl'>Account Details</div>

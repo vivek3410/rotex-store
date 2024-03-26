@@ -3,11 +3,9 @@ import { useRouter } from 'next/navigation';
 import React from 'react';
 import { BsExclamationTriangle } from 'react-icons/bs';
 
-interface Props {
 
-}
 
-function Page(props: Props) {
+function Page() {
     const router = useRouter()
     return (
         <div className='flex flex-col px-4 md:px-12 justify-start gap-2'>

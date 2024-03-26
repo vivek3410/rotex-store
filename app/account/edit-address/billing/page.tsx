@@ -5,11 +5,9 @@ import { useState } from "react";
 import { Address } from "@/types";
 import toast from "react-hot-toast";
 
-interface Props {
 
-}
 
-function Page(props: Props) {
+function Page() {
     const [form, setForm] = useState<Address>({
         firstName: "",
         lastName: "",

@@ -1,3 +1,4 @@
+'use client'
 import { useCart } from '@/hooks/useCart';
 import { cartProductType } from '@/types';
 import { PriceFormat } from '@/utils/priceFormate';

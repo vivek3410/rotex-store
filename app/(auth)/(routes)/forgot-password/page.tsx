@@ -3,11 +3,7 @@ import { Button, FloatingInput } from '@/components';
 import { doSendForgotPasswordEmail } from '@/firebase/auth';
 import React, { useState } from 'react';
 
-interface Props {
-
-}
-
-function Page(props: Props) {
+function Page() {
     const [email, setEmail] = useState("")
     const [isSending, setIsSending] = useState(false)
     const [sent, setSent] = useState(false)

@@ -2,11 +2,9 @@ import Link from 'next/link';
 import React from 'react';
 import { BsArrowRight, BsExclamationTriangle } from 'react-icons/bs';
 
-interface Props {
 
-}
 
-function Page(props: Props) {
+function Page() {
 
     const orders = []
     return (

@@ -1,5 +1,5 @@
 import React from 'react';
-import CartClient from './CartClient';
+import CartClient from './components/CartClient';
 
 export default function Page() {
     return (

@@ -5,11 +5,8 @@ import React from 'react';
 import { BiChevronRight } from 'react-icons/bi';
 import { BsArrowLeft } from 'react-icons/bs';
 
-interface Props {
 
-}
-
-function Navbar(props: Props) {
+function Navbar() {
     const pathname = usePathname();
 
     const routes = [

@@ -7,11 +7,9 @@ import axios from 'axios';
 import withAuth from '@/hooks/withAuth';
 import { useAuth } from '@/hooks/useAuth';
 
-interface Props {
 
-}
 
-function Page(props: Props) {
+function Page() {
     const [form, setForm] = useState<Address>({
         firstName: "",
         lastName: "",

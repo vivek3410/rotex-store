@@ -4,11 +4,8 @@ import withAuth from '@/hooks/withAuth';
 import prismadb from '@/lib/prismadb';
 import React from 'react';
 
-interface Props {
 
-}
-
-function Page(props: Props) {
+function Page() {
     const handleLogout = () => {
         console.log('Logout');
     }

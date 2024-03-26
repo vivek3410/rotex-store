@@ -9,17 +9,9 @@ import { BiHomeAlt, BiHomeCircle, BiUser } from 'react-icons/bi';
 import { CiShoppingBasket } from 'react-icons/ci';
 import { GrDashboard, GrOrderedList } from 'react-icons/gr';
 
-type routesType = {
-    label: string,
-    href: string,
-    icon?: React.ReactNode
-}
 
-interface Props {
 
-}
-
-function AccountSidebar(props: Props) {
+function AccountSidebar() {
     const pathname = usePathname();
     const router = useRouter()
 

@@ -1,10 +1,7 @@
 'use client'
 import { Button, FloatingInput } from "@/components";
-import { useCart } from "@/hooks/useCart";
-import prismadb from "@/lib/prismadb";
-import axios from "axios";
 import { usePathname, useRouter } from "next/navigation";
-import { useEffect, useState } from "react";
+import {  useState } from "react";
 import toast from "react-hot-toast";
 import { doSignInWithUserAndPassword } from '@/firebase/auth';
 import { useAuth } from "@/hooks/useAuth";
