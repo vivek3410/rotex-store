@@ -32,7 +32,7 @@ function Page() {
             }
             toast.success("saved")
         } catch (e) {
-            toast.error("something went wrong")
+            toast.error("something went wrong billing")
             console.log(e);
         }
         finally {

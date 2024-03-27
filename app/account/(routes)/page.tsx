@@ -1,21 +1,24 @@
 'use client'
 import { useAuth } from '@/hooks/useAuth';
 import withAuth from '@/hooks/withAuth';
-import prismadb from '@/lib/prismadb';
-import React from 'react';
 
 
 function Page() {
     const handleLogout = () => {
         console.log('Logout');
     }
-    const { userId } = useAuth();
-   
+    const { currentUser } = useAuth();
+
+
     return (
         <div className='flex flex-col py-4 gap-8 mx-4 md:mx-0'>
+
             <div className='flex items-center justify-center text-4xl'>My Account</div>
             <div className='flex flex-col justify-start gap-4'>
-                <div className='text-sm'>Hello <span className="font-bold">mamidivivek3410</span> (not <span className='font-bold'>mamidivivek3410</span>? <span className='hover:underline cursor-pointer' onClick={handleLogout}>Log out</span> )</div>
+                {currentUser && (
+                    <div className=" text-green-500 text-left">Logged in successfully</div>
+                )}
+                <div className='text-sm'>Hello <span className="font-bold">{0}</span> (not <span className='font-bold'>mamidivivek3410</span>? <span className='hover:underline cursor-pointer' onClick={handleLogout}>Log out</span> )</div>
                 <div className='text-sm'>
                     From your account dashboard you can view your <span className="text-teal-600 hover:underline cursor-pointer">
                         recent orders

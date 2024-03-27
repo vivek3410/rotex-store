@@ -27,6 +27,7 @@ export const doSignInWithUserAndPassword = async (email: string, password: strin
 }
 
 export const doSignOut = () => {
+    localStorage.removeItem('user')
     return auth.signOut()
 }
 

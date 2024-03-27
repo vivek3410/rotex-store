@@ -40,7 +40,7 @@ export const FloatingInput = ({ label, custom, name, value, onChange, required }
                 onChange={(e) => handleInput(e)}
                 required={required}
             />
-            <span className={`text-md absolute left-0 top-3 mx-4 px-2 transition duration-200 input-text ${value || inputValue ? ' bg-white transform -translate-y-6 -translate-x-2 scale-75' : 'block '}`}>{label}</span>
+            {/* <span className={`text-md absolute left-0 top-3 mx-4 px-2 transition duration-200 input-text ${value || inputValue ? ' bg-white transform -translate-y-6 -translate-x-2 scale-75' : 'block '}`}>{label}</span> */}
         </div>
     )
 }

@@ -1,7 +1,7 @@
 'use client'
 import { Button, FloatingInput } from "@/components";
 import { usePathname, useRouter } from "next/navigation";
-import {  useState } from "react";
+import { useEffect, useState } from "react";
 import toast from "react-hot-toast";
 import { doSignInWithUserAndPassword } from '@/firebase/auth';
 import { useAuth } from "@/hooks/useAuth";
@@ -12,8 +12,9 @@ export default function Page() {
     const [email, setEmail] = useState('')
     const [password, setPassword] = useState('')
     const [isSigningIn, setIsSigningIn] = useState(false)
-    const { isUserLoggedIn, } = useAuth()
+    const { isUserLoggedIn, userDetails } = useAuth()
     const [error, setError] = useState('')
+
 
 
     const onSubmit = async (e: any) => {
@@ -21,25 +22,19 @@ export default function Page() {
         try {
             if (!isSigningIn) {
                 setIsSigningIn(true)
-                await doSignInWithUserAndPassword(email, password)
+                const user = await doSignInWithUserAndPassword(email, password)
+                // console.log(user);
                 router.push('/account')
             }
             setIsSigningIn(false)
         } catch (e) {
-            toast.error("something went wrong")
+            toast.error("something went wrong login")
             setError("invalid Credentials")
         } finally {
             setIsSigningIn(false)
         }
 
     }
-
-
-
-
-
-
-
 
     return (
         <div className='bg-slate-600 py-8 px-2 md:mx-auto text-center'>

@@ -18,9 +18,7 @@ function Page() {
                 await doSendForgotPasswordEmail(email).then(() => {
                     setSent(true)
                 })
-
             }
-
         } catch (e) {
             console.log(e);
             setError('email dosent Exist')

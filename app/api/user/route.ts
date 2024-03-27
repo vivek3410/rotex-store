@@ -52,7 +52,7 @@ export async function GET(req: Request, res: Response) {
                 password,
             }
         })
-        // console.log(email);
+        console.log(email);
         if (!user) return new NextResponse("User not found", { status: 404 });
         return NextResponse.json(user)
     } catch (e) {

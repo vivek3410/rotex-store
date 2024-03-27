@@ -34,7 +34,7 @@ function Page() {
             }
             toast.success("saved")
         } catch (e) {
-            toast.error("something went wrong")
+            toast.error("something went wrong shipping")
             console.log(e);
         }
         finally {
