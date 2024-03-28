@@ -6,15 +6,8 @@ import { user } from "@/types"
 
 export const doCreateUserWithEmailAndPassword = async (form: user) => {
     try {
-        const firebaseRes = await createUserWithEmailAndPassword(auth, form.email, form.password)
-        const { user } = firebaseRes
-        const prismaRes = await axios.post('/api/user', form, {
-            headers: {
-                userId: user.uid
-            }
-        })
-
-        return { prismaRes, firebaseRes }
+        const res = await createUserWithEmailAndPassword(auth, form.email, form.password)
+        return res
     } catch (e) {
         console.log(e);
     }

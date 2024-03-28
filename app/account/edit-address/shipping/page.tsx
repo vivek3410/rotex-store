@@ -6,20 +6,23 @@ import toast from 'react-hot-toast';
 import axios from 'axios';
 import withAuth from '@/hooks/withAuth';
 import { useAuth } from '@/hooks/useAuth';
+import { useRouter } from 'next/navigation';
 
 
 
 function Page() {
+    const router = useRouter()
     const [form, setForm] = useState<Address>({
         firstName: "",
         lastName: "",
         city: "",
         state: "",
         pincode: "",
-        streetAddress: "",
-        country: "",
+        StreetAddress: "",
+        Country: "",
         userId: "",
     })
+
     const [isSaved, setIsSaved] = useState(false)
     const [loading, setLoading] = useState(false)
     const onSubmit = async (e: any) => {
@@ -33,6 +36,8 @@ function Page() {
                 setIsSaved(true)
             }
             toast.success("saved")
+            router.back()
+
         } catch (e) {
             toast.error("something went wrong shipping")
             console.log(e);
@@ -41,7 +46,6 @@ function Page() {
             setLoading(false)
         }
     }
-    // console.log(form);
     return (
         <AddressForm title='Shipping' form={form} setForm={setForm} onSubmit={onSubmit} isSaved={isSaved} loading={loading} />
     );

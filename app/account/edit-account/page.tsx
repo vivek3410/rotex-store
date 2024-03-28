@@ -1,9 +1,31 @@
 'use client'
 import { FloatingInput } from '@/components';
-import React from 'react';
+import { useAuth } from '@/hooks/useAuth';
+import { user } from '@/types';
+import axios from 'axios';
+import React, { useEffect, useState } from 'react';
+import toast from 'react-hot-toast';
 
 
 function Page() {
+    const { userId } = useAuth()
+    const [user, setUser] = useState<user | null>(null)
+    useEffect(() => {
+        const fetchUserDetials = async () => {
+            try {
+                const res = await axios.get('/api/userDetails', {
+                    headers: {
+                        'userId': userId
+                    }
+                })
+                setUser(res.data)
+            } catch (e) {
+                console.log(e);
+                toast.error("something went wrong")
+            }
+        }
+        fetchUserDetials()
+    }, [])
     return (
         <div className='flex flex-col py-4 gap-4 md:gap-12'>
             <div className='flex items-center justify-center text-4xl'>Account Details</div>
@@ -11,25 +33,25 @@ function Page() {
                 <div className='grid grid-cols-2 gap-4 items-center'>
                     <div className='flex flex-col gap-4'>
                         <label htmlFor="" className='text-slate-900 font-bold'>First Name*</label>
-                        <FloatingInput label='First name' name='FirstName' custom='rounded-xl' />
+                        <FloatingInput label='First name' name='FirstName' value={user?.firstName} custom='rounded-xl' />
                     </div>
                     <div className='flex flex-col gap-4'>
                         <label htmlFor="" className='text-slate-900 font-bold'>Last Name*</label>
-                        <FloatingInput label='Last name' name='LastName' custom='rounded-xl' />
+                        <FloatingInput label='Last name' name='LastName' value={user?.lastName} custom='rounded-xl' />
                     </div>
                 </div>
                 <div className='flex flex-col gap-4'>
                     <label htmlFor="" className='text-slate-900 font-bold'>Email Address*</label>
-                    <FloatingInput label='Email Address' name='Email' value='Email' custom='rounded-xl' />
+                    <FloatingInput label='Email Address' name='Email' value={user?.email} custom='rounded-xl' />
                 </div>
                 <div className='flex flex-col gap-4'>
                     <label htmlFor="" className='text-slate-900 font-bold'>Phone Number*</label>
-                    <FloatingInput label='Phone Number' name='Phone' value='Phone' custom='rounded-xl' />
+                    <FloatingInput label='Phone Number' name='Phone' custom='rounded-xl' />
                 </div>
                 <div className='flex flex-col gap-4'>
                     <label htmlFor="" className='text-slate-900 font-bold'>Display Name*</label>
                     <div className="flex flex-col gap-1">
-                        <FloatingInput label='Display Name' name='username' value='vivek' custom='rounded-xl' />
+                        <FloatingInput label='Display Name' name='username' custom='rounded-xl' />
                         <span className='text-sm'>This will be how your name will be displayed in the account section and in reviews</span>
                     </div>
                 </div>
@@ -55,14 +77,12 @@ function Page() {
                         <label htmlFor="" className='text-slate-900 font-bold'>Confirm new password*</label>
                         <div className="flex flex-col gap-1">
                             <FloatingInput label='Confirm new password' name='ConfirmPassword' custom='rounded-xl' />
-
                         </div>
                     </div>
                     <div className='flex flex-col gap-4'>
                         <label htmlFor="" className='text-slate-900 font-bold'>GSTIN Number*</label>
                         <div className="flex flex-col gap-1">
                             <FloatingInput label='GSTIN Number' name='GSTINNumber' custom='rounded-xl' />
-
                         </div>
                     </div>
                 </div>

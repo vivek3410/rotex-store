@@ -52,7 +52,7 @@ function AccountSidebar() {
 
                 </div>
             ))}
-            <div className='border-t-[1px] border-slate-300 cursor-pointer' onClick={() => doSignOut().then(() => { router.push('/'); toast.success("loggedout") })}>Customer Logout</div>
+            <div className='border-t-[1px] border-slate-300 cursor-pointer' onClick={() => doSignOut().then(() => { router.push('/login'); toast.success("Logged Out") })}>Customer Logout</div>
         </div >
     );
 }

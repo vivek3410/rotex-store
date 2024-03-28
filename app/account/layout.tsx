@@ -4,16 +4,21 @@ import Navbar from './components/navbar';
 import AccountSidebar from './components/sidebar';
 import { useAuth } from '@/hooks/useAuth';
 import { useRouter } from 'next/navigation';
+import { Loader } from '@/components';
+import withAuth from '@/hooks/withAuth';
 
 interface LayoutProps {
     children: React.ReactNode;
 }
 
-export default function Layout({ children }: LayoutProps) {
+function Layout({ children }: LayoutProps) {
     const { isUserLoggedIn } = useAuth();
     const router = useRouter()
-   
 
+    const { currentUser } = useAuth();
+    if (!currentUser) {
+        return <Loader />
+    }
 
     return (
         <div>
@@ -28,3 +33,5 @@ export default function Layout({ children }: LayoutProps) {
         </div>
     );
 }
+
+export default Layout

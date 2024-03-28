@@ -17,38 +17,50 @@ export default function Page() {
         email: "",
         password: "",
     })
-    const [confirmPassword, setConfirmPassword] = useState('')
-    const [error, setError] = useState("")
-
-
-    const [isRegistering, setIsRegistering] = useState(false);
-    // console.log(isRegistering);
+    const [confirmPassword, setConfirmPassword] = useState<string | null>(null)
+    const [error, setError] = useState<string | null>(null)
+    const [message, setMessage] = useState<string | null>(null)
+    const [isRegistering, setIsRegistering] = useState<boolean>(false);
 
     const updateForm = (fieldName: keyof typeof form, value: string) => {
         setForm((prev) => (
             { ...prev, [fieldName]: value }
         ))
     }
-    // console.log(form);
     const onSubmit = async (e: any) => {
+        setIsRegistering(true)
         try {
             if (!isRegistering) {
-                setIsRegistering(true)
+                if (form.firstName === '' || form.lastName === '' || form.email === '' || form.password === '') {
+                    setError('Please fill all the fields')
+                    return
+                }
                 if (form.password !== confirmPassword) {
-                    return toast.success("password do not match")
+                    setError("Passwords do not match")
                 }
                 const res = await doCreateUserWithEmailAndPassword(form)
-                console.log(res?.prismaRes);
-                if (!res?.prismaRes) {
+                if (res) {
+                    const prismaRes = await axios.post('/api/user', form, {
+                        headers: {
+                            userId: res?.user.uid
+                        }
+                    })
+                    if (prismaRes) {
+                        setMessage("registered sucessfully");
+                        router.push('/login')
+                    } else {
+                        setError("An error occurred while creating your account")
+                    }
+                } else {
                     setError("Email already exists")
                     return;
                 }
                 router.push('/login')
                 toast.success("registered sucessfully");
             }
-            setIsRegistering(false)
         } catch (e) {
             console.log(e);
+            setError('An unexpected error occurred. Please try again later.');
         }
         finally {
             setIsRegistering(false)
@@ -60,7 +72,6 @@ export default function Page() {
             <div className='flex flex-col justify-center items-center gap-2 mb-8'>
                 <div className=' text-slate-400 flex gap-2 justify-center'>
                     <span className='border-r-[2px] border-slate-500 pr-2'>Home</span>
-
                     <span>Create Account</span>
                 </div>
                 <div className='text-white text-xl md:text-4xl'>CREATE ACCOUNT</div>
@@ -69,6 +80,9 @@ export default function Page() {
             <div className='flex flex-col mx-8 md:mx-auto items-center bg-white min-h-[300px] max-w-[600px] px-8 md:px-16 py-8 rounded-3xl z-30 shadow-xl gap-8'>
                 {error && (
                     <div className='text-red-500 text-left '>{error}</div>
+                )}
+                {message && (
+                    <div className='text-blue-500 text-left '>{message}</div>
                 )}
                 <div className='w-full flex flex-col gap-8'>
                     <FloatingInput label='First Name' name='firstname' custom='rounded-xl' onChange={(e) => { updateForm('firstName', e.target.value) }} required />

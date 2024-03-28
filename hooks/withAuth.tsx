@@ -4,15 +4,13 @@ import { useAuth } from "./useAuth"
 
 const withAuth = (WrappedComponent: React.ComponentType<any>) => {
     const ComponentWithAuth = (props: any) => {
-        // const router = useRouter();
-        // const { isUserLoggedIn } = useAuth();
+        const router = useRouter()
+        const { isUserLoggedIn } = useAuth();
+        if (!isUserLoggedIn) {
+            return router.push('/login')
+        }
 
-        // // console.log(user);
-        // useEffect(() => {
-        //     if (!isUserLoggedIn) {
-        //         router.push('/login');
-        //     }
-        // }, [isUserLoggedIn]);
+
 
         return <WrappedComponent {...props} />;
     };

@@ -35,3 +35,16 @@ model ShippingAddress {
   state         String
   pincode       String
 }
+
+model BillingAddress {
+  id            String @id @default(uuid())
+  userId        String
+  firstName     String
+  lastName      String
+  companyName   String @ignore
+  Country       String
+  StreetAddress String
+  city          String
+  state         String
+  pincode       String
+}

@@ -1,5 +1,5 @@
 'use client'
-import { ChangeEventHandler, useEffect, useState } from "react";
+import { useState } from "react";
 
 
 interface FloatingInputProps {
@@ -56,9 +56,10 @@ export const FloatingTextArea = ({ label, custom, name, value, onChange, require
     }
     return (
         <div className='flex justify-center items-center relative'>
-            <textarea className={` px-2 md:px-4 pt-4 h-24 bg-white w-full text-xl border-2 border-black outline-none focus:border-teal-600 focus:text-black border-opacity-50 transition duration-200 ${custom}`}
+            <textarea className={` px-2 md:px-4 pt-4 h-24 bg-white w-full text-xs border-2 border-black outline-none focus:border-teal-600 focus:text-black border-opacity-50 transition duration-200 ${custom}`}
                 name={name}
                 value={value}
+
                 required={required}
                 onChange={(e) => handleInput(e)}
             />

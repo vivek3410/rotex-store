@@ -70,13 +70,14 @@ export type user = {
 }
 
 export type Address = {
+    id?: string
     userId: string
     firstName: string
     lastName: string
     city: string
     state: string
-    country: string
-    streetAddress: string
+    Country: string
+    StreetAddress: string
     pincode: string
     companyName?: string
 }

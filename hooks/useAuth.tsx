@@ -40,17 +40,6 @@ export const AuthProvider = ({ children }: { children: React.ReactNode }) => {
         setLoading(false)
     }
 
-    // useEffect(() => {
-    //     const userData: any = localStorage.getItem('user')
-    //     const user = JSON.parse(userData);
-    //     // console.log(user);
-    //     if (user) {
-    //         setIsUserLoggedIn(true)
-    //         // console.log(user.uid);
-    //         setUserId(user)
-    //     }
-    // }, [])
-
     useEffect(() => {
         const fetchUserDetails = async () => {
             try {
@@ -64,7 +53,6 @@ export const AuthProvider = ({ children }: { children: React.ReactNode }) => {
                 }
             } catch (e) {
                 console.log(e);
-                // toast.error("some thing went wrong")
             }
         }
         if (userId) {

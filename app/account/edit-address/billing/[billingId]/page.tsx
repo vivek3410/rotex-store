@@ -1,13 +1,15 @@
 'use client'
 import axios from "axios";
-import AddressForm from "../components/AddressForm";
 import { useState } from "react";
 import { Address } from "@/types";
 import toast from "react-hot-toast";
+import AddressForm from "../../components/AddressForm";
+import { useAuth } from "@/hooks/useAuth";
+import { useRouter } from "next/navigation";
 
 
 
-function Page() {
+function Page({ params }: { params: { billingId: string } }) {
     const [form, setForm] = useState<Address>({
         firstName: "",
         lastName: "",
@@ -18,20 +20,20 @@ function Page() {
         Country: "",
         userId: "",
     })
-    const [isSaved, setIsSaved] = useState(false)
+    const [isEdit, setIsEdit] = useState(false)
     const [loading, setLoading] = useState(false)
+    const router = useRouter()
     const onSubmit = async (e: any) => {
         e.preventDefault()
         setLoading(true)
         try {
-            // console.log(form);
-            const res = await axios.post('/api/account/billing', form)
-            console.log(res.statusText);
-            console.log(res.data);
+            const res = await axios.patch(`/api/account/billing/${params.billingId}`, form)
             if (res.status === 200) {
-                setIsSaved(true)
+                setIsEdit(true)
             }
             toast.success("saved")
+            router.push('/account/edit-address')
+
         } catch (e) {
             toast.error("something went wrong billing")
             console.log(e);
@@ -40,8 +42,10 @@ function Page() {
             setLoading(false)
         }
     }
+
+    
     return (
-        <AddressForm title='Billing' form={form} setForm={setForm} onSubmit={onSubmit} isSaved={isSaved} loading={loading} />
+        <AddressForm title='Edit Billing' form={form} setForm={setForm} onSubmit={onSubmit} isSaved={isEdit} loading={loading} />
 
     );
 }

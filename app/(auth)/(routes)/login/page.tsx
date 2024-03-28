@@ -12,23 +12,29 @@ export default function Page() {
     const [email, setEmail] = useState('')
     const [password, setPassword] = useState('')
     const [isSigningIn, setIsSigningIn] = useState(false)
-    const { isUserLoggedIn, userDetails } = useAuth()
     const [error, setError] = useState('')
+    const { isUserLoggedIn } = useAuth()
 
+    if (isUserLoggedIn) {
+        return router.push('/account')
+    }
 
 
     const onSubmit = async (e: any) => {
         e.preventDefault();
         try {
+            setIsSigningIn(true)
+            if (email === '' || password === '') {
+                setError('Please fill all the fields')
+                return
+            }
             if (!isSigningIn) {
-                setIsSigningIn(true)
                 const user = await doSignInWithUserAndPassword(email, password)
-                // console.log(user);
                 router.push('/account')
             }
             setIsSigningIn(false)
         } catch (e) {
-            toast.error("something went wrong login")
+            // toast.error("something went wrong login")
             setError("invalid Credentials")
         } finally {
             setIsSigningIn(false)
