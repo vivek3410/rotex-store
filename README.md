@@ -10,21 +10,16 @@ Before you begin, ensure you have met the following requirements:
 # Installation
 ### Clone the Repository
 ```bash
-git clone https://github.com/your-username/mern-user-management.git
-cd mern-user-management
+git clone [https://github.com/your-username/mern-user-management.git](https://github.com/vivek3410/rotex-store.git)s
 ```
 ### Set up
 ```bash
 cd rotex-store
 npm install
 
-### Environment Variables
-Create a .env file in the backend directory and add the following:
-```bash
-PORT=5000
-MONGO_URI=your_mongodb_connection_string
-JWT_SECRET=your_jwt_secret_key
-```
+### Firebase SetUp
+Add Firbase config Code to the /firbase/firebaseConfig.ts file:
+
 
 The backend server will start on http://localhost:5000.
 ### Start the Frontend Server
