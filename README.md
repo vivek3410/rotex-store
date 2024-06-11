@@ -16,9 +16,10 @@ git clone [https://github.com/your-username/mern-user-management.git](https://gi
 ```bash
 cd rotex-store
 npm install
+```
 
 ### Firebase SetUp
-Add Firbase config Code to the /firbase/firebaseConfig.ts file:
+Add Firbase config Code to the /firbase/firebaseConfig.ts file
 
 
 The backend server will start on http://localhost:5000.
