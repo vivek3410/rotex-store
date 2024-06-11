@@ -21,8 +21,6 @@ npm install
 ### Firebase SetUp
 Add Firbase config Code to the /firbase/firebaseConfig.ts file
 
-
-The backend server will start on http://localhost:5000.
 ### Start the Frontend Server
 ```bash
 npm run dev
