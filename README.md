@@ -10,7 +10,7 @@ Before you begin, ensure you have met the following requirements:
 # Installation
 ### Clone the Repository
 ```bash
-git clone [https://github.com/your-username/mern-user-management.git](https://github.com/vivek3410/rotex-store.git)s
+git clone https://github.com/vivek3410/rotex-store.git
 ```
 ### Set up
 ```bash
